@@ -8,3 +8,13 @@ and open the template in the editor.
     Author     : Andrei Oleniuc
 */
 
+AnchorPane{
+    -fx-background-color: #24292e;
+}
+JFXButton{
+    -fx-background-color: #332a91;
+}
+
+JFXTextField{
+    -fx-text-fill: white;
+}

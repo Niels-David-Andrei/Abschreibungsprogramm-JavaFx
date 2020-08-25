@@ -7,6 +7,8 @@ package ch.NielsDavidAndrei.Eingabe;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -22,7 +24,10 @@ public class HauptseiteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println("Hallo");
     }    
+
+    @FXML
+    private void ausrechnen(ActionEvent event) {
+    }
     
 }

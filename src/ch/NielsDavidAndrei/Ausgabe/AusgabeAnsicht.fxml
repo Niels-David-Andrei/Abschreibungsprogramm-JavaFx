@@ -2,4 +2,5 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@ausgabeansicht.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController" />
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController" />
