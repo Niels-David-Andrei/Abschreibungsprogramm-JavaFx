@@ -2,12 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Eingabe.HauptseiteController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="707.0" layoutY="497.0" onAction="#ausrechnen" prefHeight="51.0" prefWidth="153.0" ripplerFill="WHITE" styleClass="btn" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="707.0" layoutY="497.0" onAction="#ausrechnen" prefHeight="51.0" prefWidth="153.0" ripplerFill="WHITE" styleClass="JFXButton" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE">
          <font>
             <Font name="Wingdings 2" size="21.0" />
          </font>
@@ -17,5 +19,32 @@
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="767.0" layoutY="98.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="7.0">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/schliessen%20(4).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="173.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="7.0">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/erweitern.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="643.0" layoutY="83.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="7.0">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/minimieren%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

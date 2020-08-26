@@ -11,7 +11,7 @@ and open the template in the editor.
 AnchorPane{
     -fx-background-color: #24292e;
 }
-JFXButton{
+.JFXButton{
     -fx-background-color: #332a91;
 }
 
