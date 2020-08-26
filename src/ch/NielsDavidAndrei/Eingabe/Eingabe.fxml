@@ -1,50 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Eingabe.HauptseiteController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="707.0" layoutY="497.0" onAction="#ausrechnen" prefHeight="51.0" prefWidth="153.0" ripplerFill="WHITE" styleClass="JFXButton" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE">
+      <JFXButton fx:id="btn_calulate" buttonType="RAISED" layoutX="707.0" layoutY="497.0" onAction="#ausrechnen" prefHeight="51.0" prefWidth="153.0" ripplerFill="WHITE" styleClass="btn" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE">
          <font>
             <Font name="Wingdings 2" size="21.0" />
          </font>
       </JFXButton>
-      <JFXTextField focusColor="#7ab1ff" layoutX="146.0" layoutY="134.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#332a91">
+      <JFXTextField fx:id="tbox_anschaffungswert" focusColor="#7ab1ff" layoutX="239.0" layoutY="125.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#332a91">
          <font>
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="767.0" layoutY="98.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="7.0">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Icons/schliessen%20(4).png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="173.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="7.0">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Icons/erweitern.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="643.0" layoutY="83.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="7.0">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Icons/minimieren%20(1).png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      <Label layoutX="82.0" layoutY="134.0" text="Anschaffungswert:" textFill="WHITE" />
+      <Label layoutX="82.0" layoutY="230.0" text="Restwert:" textFill="WHITE" />
+      <Label layoutX="82.0" layoutY="286.0" prefHeight="29.0" prefWidth="102.0" text="Nutzungsdauer" textFill="WHITE" />
+      <Line endX="296.0" layoutX="157.0" layoutY="211.0" startX="-113.0" stroke="#706e6e" />
+      <Label layoutX="82.0" layoutY="306.0" prefHeight="29.0" prefWidth="102.0" text="(in Jahren):" textFill="WHITE" />
+      <JFXTextField fx:id="tbox_restwert" focusColor="#7ab1ff" layoutX="239.0" layoutY="221.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#332a91">
+         <font>
+            <Font name="Wingdings" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="tbox_nutzungsdauer" focusColor="#7ab1ff" layoutX="239.0" layoutY="296.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#332a91">
+         <font>
+            <Font name="Wingdings" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Line endX="-97.5" endY="-164.5" layoutX="551.0" layoutY="376.0" startX="-97.5" startY="1.0" stroke="#706e6e" />
+      <Line endX="296.0" layoutX="157.0" layoutY="377.0" startX="-113.0" stroke="#706e6e" />
+      <Line endX="-97.5" endY="-164.5" layoutX="142.0" layoutY="376.0" startX="-97.5" startY="1.0" stroke="#706e6e" />
+      <Label layoutX="230.0" layoutY="389.0" prefHeight="29.0" prefWidth="38.0" text="oder" textFill="WHITE" />
+      <Label layoutX="76.0" layoutY="468.0" prefHeight="29.0" prefWidth="135.0" text="Abschreibung in %:" textFill="WHITE" />
+      <JFXTextField fx:id="tbox_abschreibungsprozentsatz" focusColor="#7ab1ff" layoutX="239.0" layoutY="463.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#332a91">
+         <font>
+            <Font name="Wingdings" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Line endX="296.0" layoutX="157.0" layoutY="522.0" startX="-113.0" stroke="#706e6e" />
+      <Line endX="296.0" layoutX="157.0" layoutY="445.0" startX="-113.0" stroke="#706e6e" />
+      <Line endX="-98.5" endY="-157.5" layoutX="142.0" layoutY="603.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
+      <Line endX="-98.5" endY="-157.5" layoutX="552.0" layoutY="602.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
+      <JFXRadioButton fx:id="rd_linear" layoutX="536.0" layoutY="134.0" text="Linear:" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="abschreibungsmethode" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rd_degressiv" layoutX="536.0" layoutY="182.0" text="Degressiv:" textFill="WHITE" toggleGroup="$abschreibungsmethode" />
+      <JFXRadioButton fx:id="rd_direkt" layoutX="534.0" layoutY="260.0" text="Direkt:" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="abschreibungsart" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rd_indirekt" layoutX="536.0" layoutY="302.0" text="Indirekt:" textFill="WHITE" toggleGroup="$abschreibungsart" />
    </children>
 </AnchorPane>
