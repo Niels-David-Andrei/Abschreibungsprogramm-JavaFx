@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ch.NielsDavidAndrei;
-
 import ch.NielsDavidAndrei.Eingabe.HauptseiteController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
