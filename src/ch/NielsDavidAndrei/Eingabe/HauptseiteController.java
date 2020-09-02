@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -65,10 +66,14 @@ public class HauptseiteController implements Initializable {
     double restwert;
     String gewehlt = null;
     String AllowedChars = "[0-9@.]*";
+
     double wert;
-    double abzug;
+    ArrayList<Double> abzug = new ArrayList<>();
     double abschreibungsbetrag;
     double buchwert;
+    ArrayList<Double> degressiveB = new ArrayList<>();
+    String konto;
+
     Starter main;
 
     /**
@@ -141,11 +146,13 @@ public class HauptseiteController implements Initializable {
                         if (direkt) {
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
-                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                            konto = "Anlagekonto";
+                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
                         } else {
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
-                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                            konto = "WB";
+                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
                         }
                     }
                 }
@@ -159,10 +166,12 @@ public class HauptseiteController implements Initializable {
                         prozent = Double.parseDouble(tbox_abschreibungsprozentsatz.getText());
                         if (direkt) {
                             rechner(anschaffungswert, prozent, nutzungsdauer, "Anlagekonto");
-                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                            konto = "Anlagekonto";
+                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
                         } else {
                             rechner(anschaffungswert, prozent, nutzungsdauer, "WB");
-                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                            konto = "WB";
+                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
                         }
                     }
                 }
@@ -172,13 +181,14 @@ public class HauptseiteController implements Initializable {
 
     private void rechner(double wert, double prozent, double jahre, String konto) {
         if (jahre == 0 || wert < 1) {
+            buchwert = wert;
             System.out.println("Auf " + konto + " wird jetzt verbucht " + Double.toString(wert));
         } else {
             double preceentile = 100.0 - prozent;
             double neuerwert = wert * (preceentile / 100);
             double abzug = wert - neuerwert;
-            this.wert = wert;
-            this.abzug = abzug;
+            this.abzug.add(abzug);
+            this.degressiveB.add(neuerwert);
             jahre--;
             rechner(neuerwert, prozent, jahre, konto);
         }

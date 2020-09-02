@@ -7,6 +7,7 @@ package ch.NielsDavidAndrei.Ausgabe;
 
 import ch.NielsDavidAndrei.Starter;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
@@ -33,11 +34,16 @@ public class AusgabeAnsichtController implements Initializable {
         this.main = aThis;
     }
 
-    public void setData(double abschreibungsbetrag, double buchwert, double wert, double abzug) {
+    public void setData(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
         System.out.println(abschreibungsbetrag);
         System.out.println(buchwert);
-        System.out.println(wert);
-        System.out.println(abzug);
+        System.out.println(konto);
+        for (Double b : degressivB) {
+            System.out.println(b);
+        }
+        for (Double b : abzug) {
+            System.out.println(b);
+        }
     }
 
 }

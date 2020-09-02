@@ -8,6 +8,7 @@ package ch.NielsDavidAndrei;
 import ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController;
 import ch.NielsDavidAndrei.Eingabe.HauptseiteController;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -94,7 +95,7 @@ public class Starter extends Application {
         controller.setMainApp(this);
     }
 
-    public void startAusgabe(double abschreibungsbetrag, double buchwert, double wert, double abzug) throws IOException {
+    public void startAusgabe(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ausgabe/AusgabeAnsicht.fxml"));
         Parent root;
         root = loader.load();
@@ -105,6 +106,6 @@ public class Starter extends Application {
         stage.setScene(scene);
         stage.show();
         controller.setMainApp(this);
-        controller.setData(abschreibungsbetrag, buchwert, wert, abzug);
+        controller.setData(abschreibungsbetrag, buchwert, konto, degressivB, abzug);
     }
 }
