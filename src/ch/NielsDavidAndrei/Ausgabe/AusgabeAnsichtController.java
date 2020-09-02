@@ -35,14 +35,14 @@ public class AusgabeAnsichtController implements Initializable {
     }
 
     public void setData(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
-        System.out.println(abschreibungsbetrag);
-        System.out.println(buchwert);
-        System.out.println(konto);
+        System.out.println("Abschreibungsbetrag " + abschreibungsbetrag);
+        System.out.println("buchwert " + buchwert);
+        System.out.println("konto " +konto);
         for (Double b : degressivB) {
-            System.out.println(b);
+            System.out.println("Degressiv " + b);
         }
         for (Double b : abzug) {
-            System.out.println(b);
+            System.out.println("Abzug " + b);
         }
     }
 
