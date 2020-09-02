@@ -5,11 +5,15 @@
  */
 package ch.NielsDavidAndrei.Eingabe;
 
+import ch.NielsDavidAndrei.Starter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,12 +57,19 @@ public class HauptseiteController implements Initializable {
     private Label restWerttxt;
     @FXML
     private Label abschreibungsTxt;
-    boolean linear = false;
+    boolean linear;
     boolean direkt = false;
     double anschaffungswert;
     double nutzungsdauer;
     double prozent;
     double restwert;
+    String gewehlt = null;
+    String AllowedChars = "[0-9@.]*";
+    double wert;
+    double abzug;
+    double abschreibungsbetrag;
+    double buchwert;
+    Starter main;
 
     /**
      * Initializes the controller class.
@@ -103,48 +114,77 @@ public class HauptseiteController implements Initializable {
         rd_direkt.selectedProperty().addListener((observ, old, newV) -> {
             if (newV) {
                 direkt = true;
+                gewehlt = "j";
             } else {
                 direkt = false;
+                gewehlt = "n";
             }
         });
     }
 
     @FXML
-    private void ausrechnen(ActionEvent event) {
-        anschaffungswert = Double.parseDouble(tbox_anschaffungswert.getText());
-        nutzungsdauer = Double.parseDouble(tbox_nutzungsdauer.getText());
-        if (linear) {
-            restwert = Double.parseDouble(tbox_restwert.getText());
-            if (direkt) {
-                double abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
-                double buchwert = restwert;
-                System.out.println("Abschreibungsbetrag pro Jahr und Buchwert auf dem Anlagekonto: " + Double.toString(abschreibungsbetrag) + ", Buchwert ist: " + Double.toString(buchwert));
-            } else {
-                double abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
-                double buchwert = restwert;
-                System.out.println("Abschreibungsbetrag pro Jahr und Buchwert auf dem WB: " + Double.toString(abschreibungsbetrag) + ", Buchwert ist: " + Double.toString(buchwert));
-            }
+    private void ausrechnen(ActionEvent event) throws IOException {
+        if (tbox_anschaffungswert.getText().isEmpty() || tbox_nutzungsdauer.getText().isEmpty() || !tbox_anschaffungswert.getText().matches(AllowedChars) || !tbox_nutzungsdauer.getText().matches(AllowedChars)) {
+            System.out.println("Eingaben Falsch");
         } else {
-            prozent = Double.parseDouble(tbox_abschreibungsprozentsatz.getText());
-            if (direkt) {
-                rechner(anschaffungswert, prozent, nutzungsdauer, "Anlagekonto");
+            anschaffungswert = Double.parseDouble(tbox_anschaffungswert.getText());
+            nutzungsdauer = Double.parseDouble(tbox_nutzungsdauer.getText());
+
+            if (linear) {
+                if (tbox_restwert.getText().isEmpty() || !tbox_restwert.getText().matches(AllowedChars) || Double.parseDouble(tbox_restwert.getText()) > anschaffungswert) {
+
+                } else {
+                    if (gewehlt == null) {
+
+                    } else {
+                        restwert = Double.parseDouble(tbox_restwert.getText());
+                        if (direkt) {
+                            abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
+                            buchwert = restwert;
+                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                        } else {
+                            abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
+                            buchwert = restwert;
+                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                        }
+                    }
+                }
             } else {
-                rechner(anschaffungswert, prozent, nutzungsdauer, "WB");
+                if (tbox_abschreibungsprozentsatz.getText().isEmpty() || !tbox_abschreibungsprozentsatz.getText().matches(AllowedChars) || Double.parseDouble(tbox_abschreibungsprozentsatz.getText()) > 99) {
+
+                } else {
+                    if (gewehlt == null) {
+
+                    } else {
+                        prozent = Double.parseDouble(tbox_abschreibungsprozentsatz.getText());
+                        if (direkt) {
+                            rechner(anschaffungswert, prozent, nutzungsdauer, "Anlagekonto");
+                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                        } else {
+                            rechner(anschaffungswert, prozent, nutzungsdauer, "WB");
+                            main.startAusgabe(anschaffungswert, buchwert, wert, abzug);
+                        }
+                    }
+                }
             }
         }
     }
 
     private void rechner(double wert, double prozent, double jahre, String konto) {
-        if (jahre == 0.0) {
+        if (jahre == 0 || wert < 1) {
             System.out.println("Auf " + konto + " wird jetzt verbucht " + Double.toString(wert));
         } else {
             double preceentile = 100.0 - prozent;
             double neuerwert = wert * (preceentile / 100);
             double abzug = wert - neuerwert;
-            System.out.println("Der neue Wert ist: " + Double.toString(wert) + " neu Abgezogen wird: " + Double.toString(abzug));
+            this.wert = wert;
+            this.abzug = abzug;
             jahre--;
             rechner(neuerwert, prozent, jahre, konto);
         }
     }
 
+    public void setMainApp(Starter main) {
+        this.main = main;
+    }
 }
