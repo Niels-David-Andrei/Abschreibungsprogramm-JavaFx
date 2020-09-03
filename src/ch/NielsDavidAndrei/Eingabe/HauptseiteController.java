@@ -13,14 +13,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.shape.Line;
 
 /**
  * FXML Controller class
@@ -29,6 +26,7 @@ import javafx.scene.shape.Line;
  */
 public class HauptseiteController implements Initializable {
 
+    //View Elements
     @FXML
     private JFXButton btn_calulate;
     @FXML
@@ -51,40 +49,38 @@ public class HauptseiteController implements Initializable {
     private ToggleGroup abschreibungsart;
     @FXML
     private JFXRadioButton rd_indirekt;
-    private boolean geschriebenbox1 = false;
-    private boolean geschriebenbox2 = false;
-    private boolean geschriebenbox3 = false;
     @FXML
     private Label restWerttxt;
     @FXML
     private Label abschreibungsTxt;
-    boolean linear;
-    boolean direkt = false;
-    double anschaffungswert;
-    double nutzungsdauer;
-    double prozent;
-    double restwert;
-    String gewehlt = null;
-    String AllowedChars = "[0-9@.]*";
 
-    double wert;
-    ArrayList<Double> abzug = new ArrayList<>();
-    double abschreibungsbetrag;
-    double buchwert;
-    ArrayList<Double> degressiveB = new ArrayList<>();
-    String konto;
-
-    Starter main;
+    //Data
+    private boolean linear;
+    private boolean direkt = false;
+    private double anschaffungswert;
+    private double nutzungsdauer;
+    private double prozent;
+    private double restwert;
+    private String gewehlt = null;
+    private String AllowedChars = "[0-9@.]*";
+    private ArrayList<Double> abzug = new ArrayList<>();
+    private double abschreibungsbetrag;
+    private double buchwert;
+    private ArrayList<Double> degressiveB = new ArrayList<>();
+    private String konto;
+    private Starter main;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Visuals
         tbox_restwert.visibleProperty().set(false);
         tbox_abschreibungsprozentsatz.visibleProperty().set(false);
         restWerttxt.visibleProperty().set(false);
         abschreibungsTxt.visibleProperty().set(false);
+        //Degressiv oder Linear listener
         rd_linear.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 tbox_restwert.visibleProperty().set(true);
@@ -100,6 +96,7 @@ public class HauptseiteController implements Initializable {
                 linear = false;
             }
         });
+        //Degressiv oder Linear listener
         rd_degressiv.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 tbox_restwert.visibleProperty().set(false);
@@ -115,7 +112,7 @@ public class HauptseiteController implements Initializable {
                 linear = true;
             }
         });
-
+        //Select Dirket or Indirekt
         rd_direkt.selectedProperty().addListener((observ, old, newV) -> {
             if (newV) {
                 direkt = true;
@@ -129,49 +126,46 @@ public class HauptseiteController implements Initializable {
 
     @FXML
     private void ausrechnen(ActionEvent event) throws IOException {
-        if (tbox_anschaffungswert.getText().isEmpty() || tbox_nutzungsdauer.getText().isEmpty() || !tbox_anschaffungswert.getText().matches(AllowedChars) || !tbox_nutzungsdauer.getText().matches(AllowedChars)) {
+        if (checkEingabe(tbox_anschaffungswert.getText()) || checkEingabe(tbox_nutzungsdauer.getText())) {
             System.out.println("Eingaben Falsch");
         } else {
             anschaffungswert = Double.parseDouble(tbox_anschaffungswert.getText());
             nutzungsdauer = Double.parseDouble(tbox_nutzungsdauer.getText());
-
             if (linear) {
-                if (tbox_restwert.getText().isEmpty() || !tbox_restwert.getText().matches(AllowedChars) || Double.parseDouble(tbox_restwert.getText()) > anschaffungswert) {
-
+                if (checkRestWert(tbox_restwert.getText())) {
                 } else {
                     if (gewehlt == null) {
-
+                        System.out.println("Eingaben Falsch");
                     } else {
                         restwert = Double.parseDouble(tbox_restwert.getText());
                         if (direkt) {
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
                             konto = "Anlagekonto";
-                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+                            startAusgabe();
                         } else {
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
                             konto = "WB";
-                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+                            startAusgabe();
                         }
                     }
                 }
             } else {
-                if (tbox_abschreibungsprozentsatz.getText().isEmpty() || !tbox_abschreibungsprozentsatz.getText().matches(AllowedChars) || Double.parseDouble(tbox_abschreibungsprozentsatz.getText()) > 99) {
-
+                if (checkProzent(tbox_abschreibungsprozentsatz.getText())) {
                 } else {
                     if (gewehlt == null) {
-
+                        System.out.println("Eingaben Falsch");
                     } else {
                         prozent = Double.parseDouble(tbox_abschreibungsprozentsatz.getText());
                         if (direkt) {
-                            rechner(anschaffungswert, prozent, nutzungsdauer, "Anlagekonto");
+                            rechner(anschaffungswert, prozent, nutzungsdauer);
                             konto = "Anlagekonto";
-                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+                            startAusgabe();
                         } else {
-                            rechner(anschaffungswert, prozent, nutzungsdauer, "WB");
+                            rechner(anschaffungswert, prozent, nutzungsdauer);
                             konto = "WB";
-                            main.startAusgabe(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+                            startAusgabe();
                         }
                     }
                 }
@@ -179,10 +173,10 @@ public class HauptseiteController implements Initializable {
         }
     }
 
-    private void rechner(double wert, double prozent, double jahre, String konto) {
+    //Rechner der Degressiven Methode
+    private void rechner(double wert, double prozent, double jahre) {
         if (jahre == 0 || wert < 1) {
             buchwert = wert;
-            System.out.println("Auf " + konto + " wird jetzt verbucht " + Double.toString(wert));
         } else {
             double preceentile = 100.0 - prozent;
             double neuerwert = wert * (preceentile / 100);
@@ -190,11 +184,44 @@ public class HauptseiteController implements Initializable {
             this.abzug.add(abzug);
             this.degressiveB.add(neuerwert);
             jahre--;
-            rechner(neuerwert, prozent, jahre, konto);
+            rechner(neuerwert, prozent, jahre);
+
         }
     }
 
+    //Set Mainapp for this Controller
     public void setMainApp(Starter main) {
         this.main = main;
+    }
+
+    //Start ausgabe
+    private void startAusgabe() throws IOException {
+        main.setData(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+        main.startAusgabe();
+    }
+
+    //Check Methodes
+    private boolean checkEingabe(String eingabe) {
+        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean checkRestWert(String eingabe) {
+        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > anschaffungswert) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean checkProzent(String eingabe) {
+        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > 99) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

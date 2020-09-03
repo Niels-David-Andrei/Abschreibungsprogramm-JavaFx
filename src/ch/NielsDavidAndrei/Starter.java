@@ -27,6 +27,7 @@ public class Starter extends Application {
     private Stage stage;
     private double xOffset = 0;
     private double yOffset = 0;
+    Objekt werte = new Objekt();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -95,7 +96,7 @@ public class Starter extends Application {
         controller.setMainApp(this);
     }
 
-    public void startAusgabe(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) throws IOException {
+    public void startAusgabe() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ausgabe/AusgabeAnsicht.fxml"));
         Parent root;
         root = loader.load();
@@ -106,6 +107,14 @@ public class Starter extends Application {
         stage.setScene(scene);
         stage.show();
         controller.setMainApp(this);
-        controller.setData(abschreibungsbetrag, buchwert, konto, degressivB, abzug);
+        controller.setData(werte.getAbschreibungsbetrag(), werte.getBuchwert(), werte.getKonto(), werte.getDegressivB(), werte.getAbzug());
+    }
+
+    public void setData(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
+        werte.setAbschreibungsbetrag(abschreibungsbetrag);
+        werte.setBuchwert(buchwert);
+        werte.setKonto(konto);
+        werte.setDegressivB(degressivB);
+        werte.setAbzug(abzug);
     }
 }
