@@ -9,12 +9,23 @@ and open the template in the editor.
 */
 
 AnchorPane{
-    -fx-background-color: #4F4C4C;
+    -fx-background-color: linear-gradient(to right,#2e2e2e,#000000);
 }
 .JFXButton{
-    -fx-background-color: #0f9d58;
+    -fx-background-color: #20d3ea;
 }
 
 JFXTextField{
     -fx-text-fill: white;
+}
+
+
+.costum-jfx-radio-button .radio{
+    -fx-stroke-width: 2px;
+    -fx-fill:transparent;
+}
+
+.costum-jfx-radio-button-blue{
+    -jfx-selected-color: #00ddff;
+    -jfx-unselected-color: white;
 }

@@ -3,8 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -16,50 +19,111 @@
             <Font name="Wingdings 2" size="21.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tbox_anschaffungswert" focusColor="WHITE" layoutX="239.0" layoutY="67.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#0f9d58">
+      <JFXTextField fx:id="tbox_anschaffungswert" focusColor="WHITE" layoutX="239.0" layoutY="67.0" prefHeight="39.0" prefWidth="188.0" promptText="in CHF" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#20d3ea">
          <font>
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
-      <Label layoutX="72.0" layoutY="79.0" text="Anschaffungswert:" textFill="WHITE" />
-      <Label fx:id="restWerttxt" layoutX="76.0" layoutY="327.0" text="Restwert:" textFill="WHITE" />
-      <Label layoutX="72.0" layoutY="124.0" prefHeight="29.0" prefWidth="102.0" text="Nutzungsdauer" textFill="WHITE" />
-      <Line endX="296.0" layoutX="157.0" layoutY="296.0" startX="-113.0" stroke="#706e6e" />
-      <Label layoutX="72.0" layoutY="146.0" prefHeight="29.0" prefWidth="102.0" text="(in Jahren):" textFill="WHITE" />
-      <JFXTextField fx:id="tbox_nutzungsdauer" focusColor="WHITE" layoutX="239.0" layoutY="133.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#0f9d58">
+      <Label layoutX="72.0" layoutY="79.0" text="Anschaffungswert:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="restWerttxt" layoutX="76.0" layoutY="327.0" text="Restwert:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="72.0" layoutY="124.0" prefHeight="29.0" prefWidth="133.0" text="Nutzungsdauer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Line endX="296.0" layoutX="157.0" layoutY="296.0" startX="-113.0" stroke="WHITE" />
+      <Label layoutX="72.0" layoutY="146.0" prefHeight="29.0" prefWidth="102.0" text="(in Jahren):" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <JFXTextField fx:id="tbox_nutzungsdauer" focusColor="WHITE" layoutX="239.0" layoutY="133.0" prefHeight="39.0" prefWidth="188.0" promptText="In Jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#00ddff">
          <font>
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="tbox_restwert" focusColor="WHITE" layoutX="239.0" layoutY="312.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#0f9d58">
+      <JFXTextField fx:id="tbox_restwert" focusColor="WHITE" layoutX="239.0" layoutY="312.0" prefHeight="39.0" prefWidth="188.0" promptText="In CHF" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#00ddff">
          <font>
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
-      <Line endX="296.0" layoutX="157.0" layoutY="374.0" startX="-113.0" stroke="#706e6e" />
-      <Label fx:id="abschreibungsTxt" layoutX="76.0" layoutY="324.0" prefHeight="29.0" prefWidth="135.0" text="Abschreibung in %:" textFill="WHITE" />
-      <JFXTextField fx:id="tbox_abschreibungsprozentsatz" focusColor="WHITE" layoutX="239.0" layoutY="312.0" prefHeight="39.0" prefWidth="188.0" promptText="jahre" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#0f9d58">
+      <Line endX="296.0" layoutX="157.0" layoutY="374.0" startX="-113.0" stroke="WHITE" />
+      <Label fx:id="abschreibungsTxt" layoutX="76.0" layoutY="324.0" prefHeight="29.0" prefWidth="135.0" text="Abschreibung in %:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <JFXTextField fx:id="tbox_abschreibungsprozentsatz" focusColor="WHITE" layoutX="239.0" layoutY="312.0" prefHeight="39.0" prefWidth="188.0" promptText="in Prozent" styleClass="textfield" stylesheets="@../Styling/eingabeStyle.css" unFocusColor="#00ddff">
          <font>
             <Font name="Wingdings" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXRadioButton fx:id="rd_linear" layoutX="536.0" layoutY="93.0" text="Linear:" textFill="WHITE">
+      <JFXRadioButton fx:id="rd_linear" layoutX="536.0" layoutY="93.0" stylesheets="@../Styling/eingabeStyle.css" text="Linear:" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="abschreibungsmethode" />
          </toggleGroup>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="costum-jfx-radio-button" />
+            <String fx:value="costum-jfx-radio-button-blue" />
+         </styleClass>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rd_degressiv" layoutX="536.0" layoutY="150.0" text="Degressiv:" textFill="WHITE" toggleGroup="$abschreibungsmethode" />
-      <JFXRadioButton fx:id="rd_direkt" layoutX="572.0" layoutY="327.0" text="Direkt:" textFill="WHITE">
+      <JFXRadioButton fx:id="rd_degressiv" layoutX="536.0" layoutY="150.0" stylesheets="@../Styling/eingabeStyle.css" text="Degressiv:" textFill="WHITE" toggleGroup="$abschreibungsmethode">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="costum-jfx-radio-button" />
+            <String fx:value="costum-jfx-radio-button-blue" />
+         </styleClass></JFXRadioButton>
+      <JFXRadioButton fx:id="rd_direkt" layoutX="572.0" layoutY="327.0" stylesheets="@../Styling/eingabeStyle.css" text="Direkt" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="abschreibungsart" />
          </toggleGroup>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="costum-jfx-radio-button" />
+            <String fx:value="costum-jfx-radio-button-blue" />
+         </styleClass>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rd_indirekt" layoutX="711.0" layoutY="326.0" text="Indirekt:" textFill="WHITE" toggleGroup="$abschreibungsart" />
-      <Line endX="-98.5" endY="-157.5" layoutX="142.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
-      <Line endX="-98.5" endY="-157.5" layoutX="626.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
-      <Line endX="-98.5" endY="-157.5" layoutX="921.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
-      <Line endX="296.0" layoutX="525.0" layoutY="296.0" startX="2.0" stroke="#706e6e" />
-      <Line endX="296.0" layoutX="525.0" layoutY="374.0" startX="2.0" stroke="#706e6e" />
-      <Line endX="-98.5" endY="-157.5" layoutX="552.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="#706e6e" />
+      <JFXRadioButton fx:id="rd_indirekt" layoutX="711.0" layoutY="326.0" stylesheets="@../Styling/eingabeStyle.css" text="Indirekt" textFill="WHITE" toggleGroup="$abschreibungsart">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="costum-jfx-radio-button" />
+            <String fx:value="costum-jfx-radio-button-blue" />
+         </styleClass></JFXRadioButton>
+      <Line endX="-98.5" endY="-157.5" layoutX="142.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="WHITE" />
+      <Line endX="-98.5" endY="-157.5" layoutX="626.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="WHITE" />
+      <Line endX="-98.5" endY="-157.5" layoutX="921.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="WHITE" />
+      <Line endX="296.0" layoutX="525.0" layoutY="296.0" startX="2.0" stroke="WHITE" />
+      <Line endX="296.0" layoutX="525.0" layoutY="374.0" startX="2.0" stroke="WHITE" />
+      <Line endX="-98.5" endY="-157.5" layoutX="552.0" layoutY="454.0" startX="-98.5" startY="-80.5" stroke="WHITE" />
+      <JFXButton buttonType="RAISED" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="5.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/minimieren%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="WHITE" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/schliessen%20(4).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

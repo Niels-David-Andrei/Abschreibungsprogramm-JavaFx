@@ -224,4 +224,14 @@ public class HauptseiteController implements Initializable {
             return false;
         }
     }
+
+    @FXML
+    private void min(ActionEvent event) throws IOException {
+        main.setToMin();
+    }
+
+    @FXML
+    private void close(ActionEvent event) {
+        System.exit(0);
+    }
 }

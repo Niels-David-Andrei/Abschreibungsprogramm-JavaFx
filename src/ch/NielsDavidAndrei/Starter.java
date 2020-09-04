@@ -117,4 +117,9 @@ public class Starter extends Application {
         werte.setDegressivB(degressivB);
         werte.setAbzug(abzug);
     }
+
+    public void setToMin() throws IOException {
+        stage.setIconified(true);
+    }
+
 }
