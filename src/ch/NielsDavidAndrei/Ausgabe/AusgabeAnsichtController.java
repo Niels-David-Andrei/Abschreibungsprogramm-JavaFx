@@ -55,14 +55,6 @@ public class AusgabeAnsichtController implements Initializable {
         for (int i = 0; i < degressivB.size(); i++) {
             double we = degressivB.get(i);
             double ab = abzug.get(i);
-//            for (Double b : degressivB) {
-//                System.out.println("Neuer Wert nach einem Jahr " + Double.toString(b));
-//                we = b;
-//            }
-//            for (Double b : abzug) {
-//                System.out.println("Neuer Abzug nach einem Jahr " + Double.toString(b));
-//                ab = b;
-//            }
             data.add(new DegressivModel(i + 1, ab, we));
         }
         tabelle.setItems(data);
