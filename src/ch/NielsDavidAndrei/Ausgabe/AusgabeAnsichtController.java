@@ -9,7 +9,13 @@ import ch.NielsDavidAndrei.Starter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -18,16 +24,24 @@ import javafx.fxml.Initializable;
  */
 public class AusgabeAnsichtController implements Initializable {
 
+    private ObservableList<DegressivModel> data = FXCollections.observableArrayList();
     Double abschreibungsbetrag;
     Double buchwert;
     Starter main;
+    @FXML
+    private TableView<DegressivModel> tabelle;
+    @FXML
+    private TableColumn<DegressivModel, Integer> jahrCL;
+    @FXML
+    private TableColumn<DegressivModel, Double> abzugCL;
+    @FXML
+    private TableColumn<DegressivModel, Double> betragCL;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        jahrCL.setCellValueFactory(new PropertyValueFactory<>("jahr"));
+        abzugCL.setCellValueFactory(new PropertyValueFactory<>("abzug"));
+        betragCL.setCellValueFactory(new PropertyValueFactory<>("betrag"));
     }
 
     public void setMainApp(Starter aThis) {
@@ -38,12 +52,20 @@ public class AusgabeAnsichtController implements Initializable {
         System.out.println("Abschreibungsbetrag " + Double.toString(abschreibungsbetrag));
         System.out.println("Buchwert " + Double.toString(buchwert));
         System.out.println("Konto " + konto);
-        for (Double b : degressivB) {
-            System.out.println("Neuer Wert nach einem Jahr " + Double.toString(b));
+        for (int i = 0; i < degressivB.size(); i++) {
+            double we = degressivB.get(i);
+            double ab = abzug.get(i);
+//            for (Double b : degressivB) {
+//                System.out.println("Neuer Wert nach einem Jahr " + Double.toString(b));
+//                we = b;
+//            }
+//            for (Double b : abzug) {
+//                System.out.println("Neuer Abzug nach einem Jahr " + Double.toString(b));
+//                ab = b;
+//            }
+            data.add(new DegressivModel(i + 1, ab, we));
         }
-        for (Double b : abzug) {
-            System.out.println("Neuer Abzug nach einem Jahr " + Double.toString(b));
-        }
+        tabelle.setItems(data);
     }
 
 }
