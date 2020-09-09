@@ -196,7 +196,7 @@ public class HauptseiteController implements Initializable {
 
     //Start ausgabe
     private void startAusgabe() throws IOException {
-        main.setData(abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
+        main.setData(anschaffungswert, abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
         main.startAusgabe();
     }
 

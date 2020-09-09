@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Objekt {
 
+    double anschaffungswert;
     double abschreibungsbetrag;
     double buchwert;
     String konto;
@@ -22,40 +23,48 @@ public class Objekt {
     public Objekt() {
     }
 
+    public double getAnschaffungswert() {
+        return anschaffungswert;
+    }
+
+    public void setAnschaffungswert(double anschaffungswert) {
+        this.anschaffungswert = anschaffungswert;
+    }
+
     public double getAbschreibungsbetrag() {
         return abschreibungsbetrag;
-    }
-
-    public double getBuchwert() {
-        return buchwert;
-    }
-
-    public String getKonto() {
-        return konto;
-    }
-
-    public ArrayList<Double> getDegressivB() {
-        return degressivB;
-    }
-
-    public ArrayList<Double> getAbzug() {
-        return abzug;
     }
 
     public void setAbschreibungsbetrag(double abschreibungsbetrag) {
         this.abschreibungsbetrag = abschreibungsbetrag;
     }
 
+    public double getBuchwert() {
+        return buchwert;
+    }
+
     public void setBuchwert(double buchwert) {
         this.buchwert = buchwert;
+    }
+
+    public String getKonto() {
+        return konto;
     }
 
     public void setKonto(String konto) {
         this.konto = konto;
     }
 
+    public ArrayList<Double> getDegressivB() {
+        return degressivB;
+    }
+
     public void setDegressivB(ArrayList<Double> degressivB) {
         this.degressivB = degressivB;
+    }
+
+    public ArrayList<Double> getAbzug() {
+        return abzug;
     }
 
     public void setAbzug(ArrayList<Double> abzug) {

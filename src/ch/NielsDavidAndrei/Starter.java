@@ -23,19 +23,19 @@ import javafx.stage.StageStyle;
  * @author Andrei Oleniuc
  */
 public class Starter extends Application {
-
+    
     private Stage stage;
     private double xOffset = 0;
     private double yOffset = 0;
     Objekt werte = new Objekt();
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Eingabe/Eingabe.fxml"));
         Parent root;
         root = loader.load();
-
+        
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -50,7 +50,7 @@ public class Starter extends Application {
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-
+        
         HauptseiteController controller = loader.getController();
         final Scene scene = new Scene(root);
         stage.setTitle("Eingabe");
@@ -66,12 +66,12 @@ public class Starter extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
     public void startEingabe() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Eingabe/Eingabe.fxml"));
         Parent root;
         root = loader.load();
-
+        
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -86,7 +86,7 @@ public class Starter extends Application {
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-
+        
         HauptseiteController controller = loader.getController();
         final Scene scene = new Scene(root);
         stage.setTitle("Eingabe");
@@ -95,12 +95,12 @@ public class Starter extends Application {
         stage.show();
         controller.setMainApp(this);
     }
-
+    
     public void startAusgabe() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ausgabe/AusgabeAnsicht.fxml"));
         Parent root;
         root = loader.load();
-
+        
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -115,26 +115,33 @@ public class Starter extends Application {
                 stage.setY(event.getScreenY() - yOffset);
             }
         });
-
+        
         AusgabeAnsichtController controller = loader.getController();
         final Scene scene = new Scene(root);
         stage.setTitle("Eingabe");
         stage.setScene(scene);
         stage.show();
         controller.setMainApp(this);
-        controller.setData(werte.getAbschreibungsbetrag(), werte.getBuchwert(), werte.getKonto(), werte.getDegressivB(), werte.getAbzug());
+        controller.setData(werte.getAnschaffungswert(),
+                werte.getAbschreibungsbetrag(),
+                werte.getBuchwert(),
+                werte.getKonto(),
+                werte.getDegressivB(),
+                werte.getAbzug()
+        );
     }
-
-    public void setData(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
+    
+    public void setData(double anschaffungswert, double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
+        werte.setAnschaffungswert(anschaffungswert);
         werte.setAbschreibungsbetrag(abschreibungsbetrag);
         werte.setBuchwert(buchwert);
         werte.setKonto(konto);
         werte.setDegressivB(degressivB);
         werte.setAbzug(abzug);
     }
-
+    
     public void setToMin() throws IOException {
         stage.setIconified(true);
     }
-
+    
 }

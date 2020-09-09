@@ -25,8 +25,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AusgabeAnsichtController implements Initializable {
 
     private ObservableList<DegressivModel> data = FXCollections.observableArrayList();
-    Double abschreibungsbetrag;
-    Double buchwert;
+    double anschaffungswert;
+    double abschreibungsbetrag;
+    double buchwert;
+    String konto;
     Starter main;
     @FXML
     private TableView<DegressivModel> tabelle;
@@ -48,7 +50,7 @@ public class AusgabeAnsichtController implements Initializable {
         this.main = aThis;
     }
 
-    public void setData(double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
+    public void setData(double anschaffungswert, double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
         System.out.println("Abschreibungsbetrag " + Double.toString(abschreibungsbetrag));
         System.out.println("Buchwert " + Double.toString(buchwert));
         System.out.println("Konto " + konto);
@@ -57,6 +59,10 @@ public class AusgabeAnsichtController implements Initializable {
             double ab = abzug.get(i);
             data.add(new DegressivModel(i + 1, ab, we));
         }
+        this.anschaffungswert = anschaffungswert;
+        this.abschreibungsbetrag = abschreibungsbetrag;
+        this.buchwert = buchwert;
+        this.konto = konto;
         tabelle.setItems(data);
     }
 
