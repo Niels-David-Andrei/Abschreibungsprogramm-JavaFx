@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController">
    <children>
-      <TableView fx:id="tabelle" layoutX="210.0" layoutY="132.0" prefHeight="294.0" prefWidth="521.0" stylesheets="@../Styling/UITable.css">
+      <TableView fx:id="tabelle" layoutX="31.0" layoutY="173.0" prefHeight="294.0" prefWidth="463.0" stylesheets="@../Styling/UITable.css">
         <columns>
           <TableColumn fx:id="jahrCL" prefWidth="114.0" text="Jahr" />
           <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="145.0" text="Abzug" />
-            <TableColumn fx:id="betragCL" minWidth="0.0" prefWidth="244.0" text="Momentaner Betrag" />
+            <TableColumn fx:id="betragCL" maxWidth="4000.0" minWidth="0.0" prefWidth="200.0" text="Neuer Betrag" />
         </columns>
       </TableView>
+      <Label layoutX="350.0" layoutY="28.0" prefHeight="70.0" prefWidth="201.0" text="Ausgabe" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="kontolbl" layoutX="531.0" layoutY="173.0" text="Konto: " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Circle fill="WHITE" layoutX="555.0" layoutY="275.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="555.0" layoutY="325.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="555.0" layoutY="375.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="555.0" layoutY="425.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="205.0" layoutX="527.0" layoutY="251.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="336.0" />
+      <Label layoutX="572.0" layoutY="262.0" text="Abzug: " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="572.0" layoutY="312.0" text="Neuer Betrag:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="574.0" layoutY="362.0" text="Anlagekonto:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="574.0" layoutY="412.0" text="WBKonto: " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

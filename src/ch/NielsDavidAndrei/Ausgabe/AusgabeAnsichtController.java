@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -38,12 +39,15 @@ public class AusgabeAnsichtController implements Initializable {
     private TableColumn<DegressivModel, Double> abzugCL;
     @FXML
     private TableColumn<DegressivModel, Double> betragCL;
+    @FXML
+    private Label kontolbl;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         jahrCL.setCellValueFactory(new PropertyValueFactory<>("jahr"));
         abzugCL.setCellValueFactory(new PropertyValueFactory<>("abzug"));
         betragCL.setCellValueFactory(new PropertyValueFactory<>("betrag"));
+        
     }
 
     public void setMainApp(Starter aThis) {
@@ -64,6 +68,12 @@ public class AusgabeAnsichtController implements Initializable {
         this.buchwert = buchwert;
         this.konto = konto;
         tabelle.setItems(data);
+        
+        if(konto.equals("Anlagekonto")){
+            kontolbl.setText("Konto: Der Betrag wird auf\ndas Anlagekonto verbucht.");
+        }else if (konto.equals("WB")){
+            kontolbl.setText("Konto: Der Betrag wird auf\ndas WBKonto verbucht.");
+        }
     }
 
 }
