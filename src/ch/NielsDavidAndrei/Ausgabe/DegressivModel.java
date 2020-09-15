@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//////////////////////////////////////////////////////////////
+// Authoren: Andrei, David, Niels
+// Name: DasBesteAbschreibungsprogrammÜberhaupt
+// Erstellungs Datum: 19.08.20
+// Letzte Änderung: 16.09.20
+// Version: 1.0.0
+// Beschreibung: Dieses Programm dient der Berrechnung der Abschreibungen.
+//               Dabei wird zwischen linearen und degressiven Abschreibungen unterschieden. 
+//               Ausserdem kann entschieden werden ob es direkt oder indirekt abgeschrieben werden soll.
+//////////////////////////////////////////////////////////////
 package ch.NielsDavidAndrei.Ausgabe;
 
 /**
