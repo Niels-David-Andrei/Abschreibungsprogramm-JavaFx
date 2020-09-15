@@ -50,7 +50,7 @@
             <Font name="Open Sans" size="20.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="5.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,7 +59,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="5.0">
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="5.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -123,7 +123,7 @@
             <Font name="Open Sans" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="linear4" layoutX="305.0" layoutY="335.0" text="Jahren : " textFill="WHITE">
+      <Label fx:id="linear4" layoutX="292.0" layoutY="336.0" text="Jahren : " textFill="WHITE">
          <font>
             <Font name="Open Sans" size="21.0" />
          </font>
@@ -138,7 +138,7 @@
             <Font name="Open Sans Semibold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="linearjahr" layoutX="261.0" layoutY="335.0" text="jahr" textFill="WHITE">
+      <Label fx:id="linearjahr" layoutX="255.0" layoutY="335.0" text="4" textFill="WHITE">
          <font>
             <Font name="Open Sans" size="21.0" />
          </font>
@@ -153,7 +153,7 @@
             <Font name="Open Sans Semibold" size="21.0" />
          </font>
       </Label>
-      <TableView fx:id="tabelle" layoutX="40.0" layoutY="129.0" onMouseClicked="#clickItem" prefHeight="413.0" prefWidth="609.0" stylesheets="@../Styling/UITable.css">
+      <TableView fx:id="tabelle" layoutX="40.0" layoutY="128.0" onMouseClicked="#clickItem" prefHeight="413.0" prefWidth="609.0" stylesheets="@../Styling/UITable.css">
         <columns>
           <TableColumn fx:id="jahrCL" prefWidth="162.0" text="Jahr" />
           <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="196.0" text="Abzug" />

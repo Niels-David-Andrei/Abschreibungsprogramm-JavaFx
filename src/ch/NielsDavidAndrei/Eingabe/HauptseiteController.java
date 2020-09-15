@@ -221,7 +221,7 @@ public class HauptseiteController implements Initializable {
 
     //Check Methodes
     private boolean checkEingabe(String eingabe) {
-        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars)) {
+        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) == 0) {
             return true;
         } else {
             return false;
@@ -237,7 +237,7 @@ public class HauptseiteController implements Initializable {
     }
 
     private boolean checkProzent(String eingabe) {
-        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > 99) {
+        if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > 99 || Double.parseDouble(eingabe) == 0) {
             return true;
         } else {
             return false;
