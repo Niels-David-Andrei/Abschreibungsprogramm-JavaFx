@@ -132,6 +132,15 @@ public class HauptseiteController implements Initializable {
                 gewehlt = "n";
             }
         });
+        rd_indirekt.selectedProperty().addListener((observ, old, newV) -> {
+            if (newV) {
+                direkt = false;
+                gewehlt = "j";
+            } else {
+                direkt = true;
+                gewehlt = "n";
+            }
+        });
     }
 
     @FXML

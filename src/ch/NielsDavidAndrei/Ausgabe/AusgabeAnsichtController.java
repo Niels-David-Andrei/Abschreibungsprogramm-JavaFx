@@ -35,7 +35,7 @@ import javafx.scene.input.MouseEvent;
  * @author Andrei Oleniuc
  */
 public class AusgabeAnsichtController implements Initializable {
-    
+
     private static DecimalFormat df = new DecimalFormat("0.00");
     private ObservableList<DegressivModel> data = FXCollections.observableArrayList();
     double anschaffungswert;
@@ -59,18 +59,18 @@ public class AusgabeAnsichtController implements Initializable {
     private Label abzugA;
     @FXML
     private Label restA;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         jahrCL.setCellValueFactory(new PropertyValueFactory<>("jahr"));
         abzugCL.setCellValueFactory(new PropertyValueFactory<>("abzug"));
         betragCL.setCellValueFactory(new PropertyValueFactory<>("betrag"));
     }
-    
+
     public void setMainApp(Starter aThis) {
         this.main = aThis;
     }
-    
+
     public void setData(double anschaffungswert, double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
         System.out.println("Abschreibungsbetrag " + Double.toString(abschreibungsbetrag));
         System.out.println("Buchwert " + Double.toString(buchwert));
@@ -88,24 +88,24 @@ public class AusgabeAnsichtController implements Initializable {
         this.buchwert = buchwert;
         this.konto = konto;
         tabelle.setItems(data);
-        
+
         if (konto.equals("Anlagekonto")) {
-            kontolbl.setText("Konto: Der Betrag wird auf\ndas Anlagekonto verbucht.");
+            kontolbl.setText("Der Betrag wird auf das Anlagekonto verbucht.");
         } else if (konto.equals("WB")) {
-            kontolbl.setText("Konto: Der Betrag wird auf\ndas WBKonto verbucht.");
+            kontolbl.setText("Der Betrag wird auf das WB Konto verbucht.");
         }
     }
-    
+
     @FXML
     private void close(ActionEvent event) throws Exception {
         System.exit(0);
     }
-    
+
     @FXML
     private void min(ActionEvent event) throws IOException {
         main.setToMin();
     }
-    
+
     @FXML
     public void clickItem(MouseEvent event) {
         System.out.println(tabelle.getSelectionModel().getSelectedItem().getJahr());

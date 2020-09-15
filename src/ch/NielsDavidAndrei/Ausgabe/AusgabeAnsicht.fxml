@@ -27,7 +27,7 @@
             <Font name="Open Sans" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="kontolbl" layoutX="669.0" layoutY="139.0" prefHeight="31.0" prefWidth="446.0" text="Konto: " textFill="WHITE">
+      <Label layoutX="669.0" layoutY="124.0" prefHeight="35.0" prefWidth="98.0" text="Konto: " textFill="WHITE">
          <font>
             <Font name="Open Sans" size="24.0" />
          </font>
@@ -94,8 +94,25 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="jahrA" layoutX="681.0" layoutY="523.0" textFill="WHITE" />
-      <Label fx:id="abzugA" layoutX="783.0" layoutY="523.0" textFill="WHITE" />
-      <Label fx:id="restA" layoutX="928.0" layoutY="523.0" textFill="WHITE" />
+      <Label fx:id="jahrA" layoutX="681.0" layoutY="523.0" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="abzugA" layoutX="783.0" layoutY="523.0" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="restA" layoutX="928.0" layoutY="523.0" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="kontolbl" layoutX="670.0" layoutY="166.0" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
