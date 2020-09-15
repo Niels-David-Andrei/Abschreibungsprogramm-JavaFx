@@ -28,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 
 /**
  * FXML Controller class
@@ -59,6 +60,34 @@ public class AusgabeAnsichtController implements Initializable {
     private Label abzugA;
     @FXML
     private Label restA;
+    @FXML
+    private Rectangle rec2;
+    @FXML
+    private Label beschreibung;
+    @FXML
+    private Label jahrinfo;
+    @FXML
+    private Label abzuginfo;
+    @FXML
+    private Label restinfo;
+    @FXML
+    private Rectangle rec3;
+    @FXML
+    private Label linear2;
+    @FXML
+    private Label linear3;
+    @FXML
+    private Label linear4;
+    @FXML
+    private Label linear5;
+    @FXML
+    private Label linearKonto;
+    @FXML
+    private Label linearjahr;
+    @FXML
+    private Label abzugLinear;
+    @FXML
+    private Label linearBuchwert;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -75,20 +104,17 @@ public class AusgabeAnsichtController implements Initializable {
         System.out.println("Abschreibungsbetrag " + Double.toString(abschreibungsbetrag));
         System.out.println("Buchwert " + Double.toString(buchwert));
         System.out.println("Konto " + konto);
-        for (int i = 0; i < degressivB.size(); i++) {
-            double we = degressivB.get(i);
-            double ab = abzug.get(i);
-            data.add(new DegressivModel(i + 1, Double.parseDouble(df.format(ab)), Double.parseDouble(df.format(we))));
-            jahrA.setText(Integer.toString(i + 1));
-            abzugA.setText(df.format(ab));
-            restA.setText(df.format(we));
-        }
         this.anschaffungswert = anschaffungswert;
         this.abschreibungsbetrag = abschreibungsbetrag;
         this.buchwert = buchwert;
         this.konto = konto;
-        tabelle.setItems(data);
-
+        if (degressivB.isEmpty()) {
+            hideDegressivObjects();
+            linear();
+        } else {
+            hideLinearObjects();
+            degressiv(degressivB, abzug);
+        }
         if (konto.equals("Anlagekonto")) {
             kontolbl.setText("Der Betrag wird auf das Anlagekonto verbucht.");
         } else if (konto.equals("WB")) {
@@ -114,5 +140,75 @@ public class AusgabeAnsichtController implements Initializable {
         jahrA.setText(Integer.toString(tabelle.getSelectionModel().getSelectedItem().getJahr()));
         abzugA.setText(df.format(tabelle.getSelectionModel().getSelectedItem().getAbzug()));
         restA.setText(df.format(tabelle.getSelectionModel().getSelectedItem().getBetrag()));
+    }
+
+    private void hideDegressivObjects() {
+        tabelle.visibleProperty().set(false);
+        tabelle.disableProperty().set(true);
+        jahrA.visibleProperty().set(false);
+        jahrA.disableProperty().set(true);
+        abzugA.visibleProperty().set(false);
+        abzugA.disableProperty().set(true);
+        restA.visibleProperty().set(false);
+        restA.disableProperty().set(true);
+        rec2.visibleProperty().set(false);
+        rec2.disableProperty().set(true);
+        beschreibung.visibleProperty().set(false);
+        beschreibung.disableProperty().set(true);
+        jahrinfo.visibleProperty().set(false);
+        jahrinfo.disableProperty().set(true);
+        abzuginfo.visibleProperty().set(false);
+        abzuginfo.disableProperty().set(true);
+        restinfo.visibleProperty().set(false);
+        restinfo.disableProperty().set(true);
+    }
+
+    private void hideLinearObjects() {
+        rec3.visibleProperty().set(false);
+        rec3.disableProperty().set(true);
+        linear2.visibleProperty().set(false);
+        linear2.disableProperty().set(true);
+        linear3.visibleProperty().set(false);
+        linear3.disableProperty().set(true);
+        linear4.visibleProperty().set(false);
+        linear4.disableProperty().set(true);
+        linear5.visibleProperty().set(false);
+        linear5.disableProperty().set(true);
+        linearKonto.visibleProperty().set(false);
+        linearKonto.disableProperty().set(true);
+        linearjahr.visibleProperty().set(false);
+        linearjahr.disableProperty().set(true);
+        abzugLinear.visibleProperty().set(false);
+        abzugLinear.disableProperty().set(true);
+        linearBuchwert.visibleProperty().set(false);
+        linearBuchwert.disableProperty().set(true);
+
+    }
+
+    private void degressiv(ArrayList<Double> degressivB, ArrayList<Double> abzug) {
+        for (int i = 0; i < degressivB.size(); i++) {
+            double we = degressivB.get(i);
+            double ab = abzug.get(i);
+            data.add(new DegressivModel(i + 1, Double.parseDouble(df.format(ab)), Double.parseDouble(df.format(we))));
+            jahrA.setText(Integer.toString(i + 1));
+            abzugA.setText(df.format(ab));
+            restA.setText(df.format(we));
+        }
+        tabelle.setItems(data);
+
+    }
+
+    private void linear() {
+        if (konto.equals("Anlagekonto")) {
+            linearKonto.setText("Es wird auf das Anlagekonto verbucht");
+        } else if (konto.equals("WB")) {
+            linearKonto.setText("Es wird auf das WB Konto verbucht");
+        }
+        abzugLinear.setText(df.format(abschreibungsbetrag));
+        linearBuchwert.setText(df.format(buchwert));
+        double verbuchteJahre = anschaffungswert - buchwert;
+        verbuchteJahre /= abschreibungsbetrag;
+        System.out.println((int) verbuchteJahre);
+        linearjahr.setText(Integer.toString((int) verbuchteJahre));
     }
 }

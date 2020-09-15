@@ -13,21 +13,15 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1161.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="222.0" layoutX="670.0" layoutY="455.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="446.0" />
+      <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="222.0" layoutX="670.0" layoutY="455.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="446.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="213.0" layoutX="670.0" layoutY="211.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="446.0" />
-      <TableView fx:id="tabelle" layoutX="40.0" layoutY="148.0" onMouseClicked="#clickItem" prefHeight="413.0" prefWidth="597.0" stylesheets="@../Styling/UITable.css">
-        <columns>
-          <TableColumn fx:id="jahrCL" prefWidth="151.0" text="Jahr" />
-          <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="191.0" text="Abzug" />
-            <TableColumn fx:id="betragCL" maxWidth="4000.0" minWidth="0.0" prefWidth="254.0" text="Neuer Betrag" />
-        </columns>
-      </TableView>
-      <Label layoutX="492.0" layoutY="32.0" prefHeight="70.0" prefWidth="238.0" text="Ergebniss" textFill="WHITE">
+      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="548.0" layoutX="40.0" layoutY="129.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="609.0" />
+      <Label layoutX="462.0" layoutY="36.0" prefHeight="70.0" prefWidth="238.0" text="Ergebniss" textFill="WHITE">
          <font>
             <Font name="Open Sans" size="50.0" />
          </font>
       </Label>
-      <Label layoutX="669.0" layoutY="124.0" prefHeight="35.0" prefWidth="98.0" text="Konto: " textFill="WHITE">
+      <Label layoutX="670.0" layoutY="124.0" prefHeight="35.0" prefWidth="98.0" text="Konto: " textFill="WHITE">
          <font>
             <Font name="Open Sans" size="24.0" />
          </font>
@@ -74,22 +68,22 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Label layoutX="40.0" layoutY="576.0" prefHeight="29.0" prefWidth="623.0" text="Klicken sie auf eines der Jahre um genau Informationen vom Bestimmten Jahr zu sehen " textFill="WHITE">
+      <Label fx:id="beschreibung" layoutX="41.0" layoutY="552.0" prefHeight="29.0" prefWidth="589.0" text="Klicken sie auf eines der Jahre um genau Informationen vom Bestimmten Jahr zu sehen " textFill="WHITE">
          <font>
             <Font name="Open Sans" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="678.0" layoutY="469.0" text="Jahr" textFill="WHITE">
+      <Label fx:id="jahrinfo" layoutX="678.0" layoutY="469.0" text="Jahr" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="738.0" layoutY="469.0" text="Abzug des Jahres" textFill="WHITE">
+      <Label fx:id="abzuginfo" layoutX="738.0" layoutY="469.0" text="Abzug des Jahres" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="919.0" layoutY="469.0" text="Restlicher Buchwert" textFill="WHITE">
+      <Label fx:id="restinfo" layoutX="919.0" layoutY="469.0" text="Restlicher Buchwert" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -114,5 +108,57 @@
             <Font name="Open Sans" size="19.0" />
          </font>
       </Label>
+      <Label fx:id="linear2" layoutX="264.0" layoutY="138.0" text="Abbuchung" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="linear2" layoutX="49.0" layoutY="206.0" text="Abschreibungsbetrag pro Jahr" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linear3" layoutX="50.0" layoutY="270.0" text="Buchwert nach " textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linear4" layoutX="288.0" layoutY="269.0" text="Jahren" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linear5" layoutX="49.0" layoutY="327.0" text="Buchungskonto" textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linearKonto" layoutX="237.0" layoutY="327.0" prefHeight="31.0" prefWidth="390.0" text="buchungskonto">
+         <font>
+            <Font name="Open Sans" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linearjahr" layoutX="220.0" layoutY="271.0" text="jahr">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="abzugLinear" layoutX="373.0" layoutY="208.0" text="abzug">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="linearBuchwert" layoutX="389.0" layoutY="270.0" text="buchwert">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabelle" layoutX="40.0" layoutY="129.0" onMouseClicked="#clickItem" prefHeight="413.0" prefWidth="609.0" stylesheets="@../Styling/UITable.css">
+        <columns>
+          <TableColumn fx:id="jahrCL" prefWidth="162.0" text="Jahr" />
+          <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="196.0" text="Abzug" />
+            <TableColumn fx:id="betragCL" maxWidth="4000.0" minWidth="0.0" prefWidth="250.0" text="Neuer Betrag" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
