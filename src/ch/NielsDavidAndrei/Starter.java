@@ -13,7 +13,6 @@ package ch.NielsDavidAndrei;
 import ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController;
 import ch.NielsDavidAndrei.Eingabe.HauptseiteController;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.EventHandler;
