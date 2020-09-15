@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1161.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Eingabe.HauptseiteController">
    <children>
-      <JFXButton fx:id="btn_calulate" buttonType="RAISED" layoutX="83.0" layoutY="501.0" onAction="#ausrechnen" prefHeight="82.0" prefWidth="981.0" ripplerFill="#0ceeff" styleClass="JFXButton" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="97.0">
+      <JFXButton fx:id="btn_calulate" buttonType="RAISED" layoutX="83.0" layoutY="501.0" onAction="#ausrechnen" prefHeight="82.0" prefWidth="981.0" ripplerFill="WHITE" styleClass="JFXButton" stylesheets="@../Styling/eingabeStyle.css" text="Ausrechnen" textFill="WHITE" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="97.0">
          <font>
             <Font name="Open Sans" size="33.0" />
          </font>
@@ -103,7 +103,7 @@
       <Line endX="380.0" endY="0.5" layoutX="199.0" layoutY="419.0" opacity="0.34" startX="-113.0" stroke="#5370a1" strokeWidth="2.5" />
       <Line endX="-98.5" endY="-205.0" layoutX="184.0" layoutY="624.0" opacity="0.34" startX="-98.5" startY="-91.0" stroke="#5370a1" strokeWidth="2.5" />
       <Line endX="-98.5" endY="-205.0" layoutX="678.0" layoutY="625.0" opacity="0.34" startX="-98.5" startY="-92.0" stroke="#5370a1" strokeWidth="2.5" />
-      <JFXButton buttonType="RAISED" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="#6e32f7" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="5.0">
+      <JFXButton buttonType="RAISED" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="WHITE" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="5.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -112,7 +112,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="#6e32f7" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+      <JFXButton buttonType="RAISED" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

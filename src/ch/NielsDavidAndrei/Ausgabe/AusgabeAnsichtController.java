@@ -228,4 +228,9 @@ public class AusgabeAnsichtController implements Initializable {
         linearjahr.setText(Integer.toString((int) verbuchteJahre));
 
     }
+
+    @FXML
+    private void zurück(ActionEvent event) throws IOException {
+        main.startEingabe();
+    }
 }

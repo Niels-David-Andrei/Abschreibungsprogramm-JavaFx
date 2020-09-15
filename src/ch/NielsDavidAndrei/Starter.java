@@ -96,7 +96,6 @@ public class Starter extends Application {
         HauptseiteController controller = loader.getController();
         final Scene scene = new Scene(root);
         stage.setTitle("Eingabe");
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
         controller.setMainApp(this);
