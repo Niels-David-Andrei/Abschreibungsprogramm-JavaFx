@@ -1,56 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController">
+<AnchorPane prefHeight="720.0" prefWidth="1161.0" styleClass="pane" stylesheets="@../Styling/eingabeStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.NielsDavidAndrei.Ausgabe.AusgabeAnsichtController">
    <children>
-      <TableView fx:id="tabelle" layoutX="31.0" layoutY="173.0" prefHeight="294.0" prefWidth="463.0" stylesheets="@../Styling/UITable.css">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="222.0" layoutX="670.0" layoutY="455.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="446.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="213.0" layoutX="670.0" layoutY="211.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="446.0" />
+      <TableView fx:id="tabelle" layoutX="40.0" layoutY="148.0" onMouseClicked="#clickItem" prefHeight="413.0" prefWidth="597.0" stylesheets="@../Styling/UITable.css">
         <columns>
-          <TableColumn fx:id="jahrCL" prefWidth="114.0" text="Jahr" />
-          <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="145.0" text="Abzug" />
-            <TableColumn fx:id="betragCL" maxWidth="4000.0" minWidth="0.0" prefWidth="200.0" text="Neuer Betrag" />
+          <TableColumn fx:id="jahrCL" prefWidth="151.0" text="Jahr" />
+          <TableColumn fx:id="abzugCL" minWidth="0.0" prefWidth="191.0" text="Abzug" />
+            <TableColumn fx:id="betragCL" maxWidth="4000.0" minWidth="0.0" prefWidth="254.0" text="Neuer Betrag" />
         </columns>
       </TableView>
-      <Label layoutX="350.0" layoutY="28.0" prefHeight="70.0" prefWidth="201.0" text="Ausgabe" textFill="WHITE">
+      <Label layoutX="492.0" layoutY="32.0" prefHeight="70.0" prefWidth="238.0" text="Ergebniss" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="48.0" />
+            <Font name="Open Sans" size="50.0" />
          </font>
       </Label>
-      <Label fx:id="kontolbl" layoutX="531.0" layoutY="173.0" text="Konto: " textFill="WHITE">
+      <Label fx:id="kontolbl" layoutX="669.0" layoutY="139.0" prefHeight="31.0" prefWidth="446.0" text="Konto: " textFill="WHITE">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Open Sans" size="24.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="555.0" layoutY="275.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="555.0" layoutY="325.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="555.0" layoutY="375.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="555.0" layoutY="425.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="205.0" layoutX="527.0" layoutY="251.0" opacity="0.28" stroke="BLACK" strokeType="INSIDE" width="336.0" />
-      <Label layoutX="572.0" layoutY="262.0" text="Abzug: " textFill="WHITE">
+      <Circle fill="WHITE" layoutX="702.0" layoutY="234.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="702.0" layoutY="284.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="702.0" layoutY="334.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="702.0" layoutY="384.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label layoutX="719.0" layoutY="221.0" text="Abzug: " textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Open Sans" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="572.0" layoutY="312.0" text="Neuer Betrag:" textFill="WHITE">
+      <Label layoutX="719.0" layoutY="271.0" text="Neuer Betrag:" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Open Sans" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="574.0" layoutY="362.0" text="Anlagekonto:" textFill="WHITE">
+      <Label layoutX="721.0" layoutY="321.0" text="Anlagekonto:" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Open Sans" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="574.0" layoutY="412.0" text="WBKonto: " textFill="WHITE">
+      <Label layoutX="721.0" layoutY="371.0" text="WBKonto: " textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Open Sans" size="20.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#close" prefHeight="31.0" prefWidth="27.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/schliessen%20(4).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" onAction="#min" prefHeight="31.0" prefWidth="1.0" ripplerFill="#bf00ff" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="5.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/minimieren%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="40.0" layoutY="576.0" prefHeight="29.0" prefWidth="623.0" text="Klicken sie auf eines der Jahre um genau Informationen vom Bestimmten Jahr zu sehen " textFill="WHITE">
+         <font>
+            <Font name="Open Sans" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="678.0" layoutY="469.0" text="Jahr" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="738.0" layoutY="469.0" text="Abzug des Jahres" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="919.0" layoutY="469.0" text="Restlicher Buchwert" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="jahrA" layoutX="681.0" layoutY="523.0" textFill="WHITE" />
+      <Label fx:id="abzugA" layoutX="783.0" layoutY="523.0" textFill="WHITE" />
+      <Label fx:id="restA" layoutX="928.0" layoutY="523.0" textFill="WHITE" />
    </children>
 </AnchorPane>

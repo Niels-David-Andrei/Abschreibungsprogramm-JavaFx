@@ -11,9 +11,9 @@ package ch.NielsDavidAndrei.Ausgabe;
  */
 public class DegressivModel {
 
-    int jahr;
-    double abzug;
-    double betrag;
+    private int jahr;
+    private double abzug;
+    private double betrag;
 
     public DegressivModel(int jahre, double abzug, double betrag) {
         this.jahr = jahre;

@@ -69,6 +69,8 @@ public class HauptseiteController implements Initializable {
     private ArrayList<Double> degressiveB = new ArrayList<>();
     private String konto;
     private Starter main;
+    @FXML
+    private Label stern;
 
     /**
      * Initializes the controller class.
@@ -76,12 +78,14 @@ public class HauptseiteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //Visuals
+        stern.visibleProperty().set(false);
         tbox_restwert.visibleProperty().set(false);
         tbox_abschreibungsprozentsatz.visibleProperty().set(false);
         restWerttxt.visibleProperty().set(false);
         abschreibungsTxt.visibleProperty().set(false);
         //Degressiv oder Linear listener
         rd_linear.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            stern.visibleProperty().set(true);
             if (newValue) {
                 tbox_restwert.visibleProperty().set(true);
                 tbox_abschreibungsprozentsatz.visibleProperty().set(false);
@@ -98,6 +102,7 @@ public class HauptseiteController implements Initializable {
         });
         //Degressiv oder Linear listener
         rd_degressiv.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            stern.visibleProperty().set(true);
             if (newValue) {
                 tbox_restwert.visibleProperty().set(false);
                 tbox_abschreibungsprozentsatz.visibleProperty().set(true);
