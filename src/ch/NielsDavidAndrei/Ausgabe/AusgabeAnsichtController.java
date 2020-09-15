@@ -28,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -88,6 +89,12 @@ public class AusgabeAnsichtController implements Initializable {
     private Label abzugLinear;
     @FXML
     private Label linearBuchwert;
+    @FXML
+    private Circle linearDot1;
+    @FXML
+    private Circle linearDot2;
+    @FXML
+    private Circle linearDot3;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -182,6 +189,12 @@ public class AusgabeAnsichtController implements Initializable {
         abzugLinear.disableProperty().set(true);
         linearBuchwert.visibleProperty().set(false);
         linearBuchwert.disableProperty().set(true);
+        linearDot1.visibleProperty().set(false);
+        linearDot1.disableProperty().set(true);
+        linearDot2.visibleProperty().set(false);
+        linearDot2.disableProperty().set(true);
+        linearDot3.visibleProperty().set(false);
+        linearDot3.disableProperty().set(true);
 
     }
 
@@ -204,11 +217,15 @@ public class AusgabeAnsichtController implements Initializable {
         } else if (konto.equals("WB")) {
             linearKonto.setText("Es wird auf das WB Konto verbucht");
         }
-        abzugLinear.setText(df.format(abschreibungsbetrag));
-        linearBuchwert.setText(df.format(buchwert));
+        abzugLinear.setText(df.format(abschreibungsbetrag) + " CHF");
+        linearBuchwert.setText(df.format(buchwert) + " CHF");
         double verbuchteJahre = anschaffungswert - buchwert;
         verbuchteJahre /= abschreibungsbetrag;
         System.out.println((int) verbuchteJahre);
+        if ((int) verbuchteJahre == 1) {
+            linear4.setText("Jahr:");
+        }
         linearjahr.setText(Integer.toString((int) verbuchteJahre));
+
     }
 }
