@@ -115,6 +115,7 @@ public class AusgabeAnsichtController implements Initializable {
         this.main = aThis;
     }
 
+    // Für die Ausgabe 
     public void setData(double anschaffungswert, double abschreibungsbetrag, double buchwert, String konto, ArrayList<Double> degressivB, ArrayList<Double> abzug) {
         System.out.println("Abschreibungsbetrag " + Double.toString(abschreibungsbetrag));
         System.out.println("Buchwert " + Double.toString(buchwert));

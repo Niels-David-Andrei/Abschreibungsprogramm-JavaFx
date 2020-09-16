@@ -11,8 +11,9 @@
 package ch.NielsDavidAndrei.Ausgabe;
 
 /**
- *
- * @author Andrei Oleniuc
+ * Für die Werte die ausgegeben werden müssen, wenn die Abschreibung
+ * Degressiv getätigt werden soll.
+ * Dazu gehören Jahr, Abzug und der neue Betrag
  */
 public class DegressivModel {
 

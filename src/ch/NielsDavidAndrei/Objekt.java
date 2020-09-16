@@ -13,8 +13,7 @@ package ch.NielsDavidAndrei;
 import java.util.ArrayList;
 
 /**
- *
- * @author Andrei Oleniuc
+ * Diese Klasse ist 
  */
 public class Objekt {
 

@@ -26,8 +26,7 @@ import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
- *
- * @author Andrei Oleniuc
+ * Diese Klasse dient als Kontroller für die Eingabeseite.
  */
 public class HauptseiteController implements Initializable {
 
