@@ -11,22 +11,25 @@
 package ch.NielsDavidAndrei.Ausgabe;
 
 /**
- * Für die Werte die ausgegeben werden müssen, wenn die Abschreibung
- * Degressiv getätigt werden soll.
- * Dazu gehören Jahr, Abzug und der neue Betrag
+ * Für die Werte die ausgegeben werden müssen, wenn die Abschreibung Degressiv
+ * getätigt werden soll. Dazu gehören Jahr, Abzug und der neue Betrag
  */
 public class DegressivModel {
 
+    //Variablen
     private int jahr;
     private double abzug;
     private double betrag;
 
+    //Konstruktor welche bei der Instanzierung aufgerufen wird. 
+    //Speichert auch alle neuen Werte des Objektes ab
     public DegressivModel(int jahre, double abzug, double betrag) {
         this.jahr = jahre;
         this.abzug = abzug;
         this.betrag = betrag;
     }
 
+    //Getter und Setter der Variablen
     public int getJahr() {
         return jahr;
     }

@@ -13,20 +13,25 @@ package ch.NielsDavidAndrei;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse ist 
+ * Diese Klasse ist eine Daten Haltungsklasse welche benutzt wird um Übergabe
+ * Daten zu halten
  */
 public class Objekt {
 
+    //Objekt Daten und Variablen
     private double anschaffungswert;
     private double abschreibungsbetrag;
     private double buchwert;
     private String konto;
+    //Die ArrayLists für die Abzüge und Beträge bei Dregressiv
     private ArrayList<Double> degressivB = new ArrayList<>();
     private ArrayList<Double> abzug = new ArrayList<>();
 
+    //Construktor
     public Objekt() {
     }
 
+    //Getter und Setter für die Variablen
     public double getAnschaffungswert() {
         return anschaffungswert;
     }
