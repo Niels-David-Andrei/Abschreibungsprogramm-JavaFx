@@ -18,12 +18,12 @@ import java.util.ArrayList;
  */
 public class Objekt {
 
-    double anschaffungswert;
-    double abschreibungsbetrag;
-    double buchwert;
-    String konto;
-    ArrayList<Double> degressivB = new ArrayList<>();
-    ArrayList<Double> abzug = new ArrayList<>();
+    private double anschaffungswert;
+    private double abschreibungsbetrag;
+    private double buchwert;
+    private String konto;
+    private ArrayList<Double> degressivB = new ArrayList<>();
+    private ArrayList<Double> abzug = new ArrayList<>();
 
     public Objekt() {
     }

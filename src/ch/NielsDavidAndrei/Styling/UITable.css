@@ -62,15 +62,20 @@
 .table-view .scroll-bar:vertical .track{
     -fx-background-color: #051141;
 	 -fx-border-color:#051141;
-	 -fx-background-radius: 0em;
-         
+	 -fx-background-radius: 0em; 
 }
 
-.table-view *.increment-button,
-.table-view *.decrement-button,
-.table-view *.increment-arrow,
-.table-view *.decrement-arrow
-{
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb{
+    -fx-background-color: #081b5f;
+	 -fx-border-color:#081b5f;
+	 -fx-background-radius: 2em; 
+}
+
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button,
+.table-view .scroll-bar:horizontal .increment-arrow,
+.table-view .scroll-bar:horizontal .decrement-arrow{
     -fx-padding: 0;
     -fx-shape: "";
 }
