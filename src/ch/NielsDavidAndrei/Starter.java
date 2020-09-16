@@ -40,7 +40,7 @@ public class Starter extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Eingabe/Eingabe.fxml"));
         Parent root;
         root = loader.load();
-
+        //Dragable
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
