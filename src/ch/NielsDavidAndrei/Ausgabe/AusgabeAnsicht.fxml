@@ -185,7 +185,7 @@
             <Font name="Open Sans" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="1009.0" layoutY="190.0" prefHeight="30.0" prefWidth="130.0" text="abgeschrieben " textFill="#5370a1">
+      <Label layoutX="999.0" layoutY="190.0" prefHeight="30.0" prefWidth="130.0" text="abgeschrieben " textFill="#5370a1">
          <font>
             <Font name="Open Sans" size="16.0" />
          </font>

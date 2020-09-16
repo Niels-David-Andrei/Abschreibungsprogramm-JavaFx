@@ -25,12 +25,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 
 /**
- * FXML Controller class
- * Diese Klasse dient als Kontroller für die Eingabeseite.
+ * FXML Controller class Diese Klasse dient als Kontroller für die Eingabeseite.
  */
 public class HauptseiteController implements Initializable {
 
-    //View Elements
+    //Visuelle Elemente
     @FXML
     private JFXButton btn_calulate;
     @FXML
@@ -57,8 +56,10 @@ public class HauptseiteController implements Initializable {
     private Label restWerttxt;
     @FXML
     private Label abschreibungsTxt;
+    @FXML
+    private Label stern;
 
-    //Data
+    //Daten welche Relevant sind
     private boolean linear;
     private boolean direkt = false;
     private double anschaffungswert;
@@ -74,19 +75,18 @@ public class HauptseiteController implements Initializable {
     private String konto;
     private Starter main;
     @FXML
-    private Label stern;
+    private Label fehlerTxt;
 
-    /**
-     * Initializes the controller class.
-     */
+    //Inizialisiert das fxml und erfüllt Visuelle und Auswahl aufgaben
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Visuals
+        //Lässt alle Visuellen Objekte welche nicht zu sehen sein sollen auf Visibility false
         stern.visibleProperty().set(false);
         tbox_restwert.visibleProperty().set(false);
         tbox_abschreibungsprozentsatz.visibleProperty().set(false);
         restWerttxt.visibleProperty().set(false);
         abschreibungsTxt.visibleProperty().set(false);
+        fehlerTxt.visibleProperty().set(false);
         //Degressiv oder Linear listener
         rd_linear.selectedProperty().addListener((observable, oldValue, newValue) -> {
             stern.visibleProperty().set(true);
@@ -121,8 +121,9 @@ public class HauptseiteController implements Initializable {
                 linear = true;
             }
         });
-        //Select Dirket or Indirekt
+        //Select Dirket or Indirekt durch einen Listener
         rd_direkt.selectedProperty().addListener((observ, old, newV) -> {
+            //Setzte Direkt je nach Eingabe
             if (newV) {
                 direkt = true;
                 gewehlt = "j";
@@ -132,6 +133,7 @@ public class HauptseiteController implements Initializable {
             }
         });
         rd_indirekt.selectedProperty().addListener((observ, old, newV) -> {
+            //Setzte Indirket je nach Eingabe
             if (newV) {
                 direkt = false;
                 gewehlt = "j";
@@ -142,47 +144,78 @@ public class HauptseiteController implements Initializable {
         });
     }
 
+    //Rechnet die Daten aus bei nach bestätigen der Eingabe, ausserdem fängt es Falsche eingaben ab
     @FXML
     private void ausrechnen(ActionEvent event) throws IOException {
+        //Checkt die Eingaben
         if (checkEingabe(tbox_anschaffungswert.getText()) || checkEingabe(tbox_nutzungsdauer.getText())) {
-            System.out.println("Eingaben Falsch");
+            //Setzt die Fehler Meldung damit der User diese sieht
+            fehlerTxt.visibleProperty().set(true);
         } else {
+            //Speichert die Daten
             anschaffungswert = Double.parseDouble(tbox_anschaffungswert.getText());
             nutzungsdauer = Double.parseDouble(tbox_nutzungsdauer.getText());
+            //Checkt ob Linear oder Degressiv
             if (linear) {
+                //Checkt die Restwert Eingabe
                 if (checkRestWert(tbox_restwert.getText())) {
+                    //Setzt die Fehler Meldung damit der User diese sieht
+                    fehlerTxt.visibleProperty().set(true);
                 } else {
                     if (gewehlt == null) {
-                        System.out.println("Eingaben Falsch");
+                        //Setzt die Fehler Meldung damit der User diese sieht
+                        fehlerTxt.visibleProperty().set(true);
                     } else {
+                        //Holt sich den Restwert
                         restwert = Double.parseDouble(tbox_restwert.getText());
+                        //Checkt ob Direkt oder Indirekt
                         if (direkt) {
+                            //Rechnet mit den Eingaben die Ausgabe
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
                             konto = "Anlagekonto";
+                            //Setzt die Fehler Meldung damit der User diese nicht sieht
+                            fehlerTxt.visibleProperty().set(false);
+                            //Startet die ausgabe
                             startAusgabe();
                         } else {
+                            //Rechnet mit den Eingaben die Ausgabe
                             abschreibungsbetrag = (anschaffungswert - restwert) / nutzungsdauer;
                             buchwert = restwert;
                             konto = "WB";
+                            //Setzt die Fehler Meldung damit der User diese nicht sieht
+                            fehlerTxt.visibleProperty().set(false);
+                            //Startet die ausgabe
                             startAusgabe();
                         }
                     }
                 }
             } else {
+                //Checkt die Prozentsatz Eingabe
                 if (checkProzent(tbox_abschreibungsprozentsatz.getText())) {
+                    //Setzt die Fehler Meldung damit der User diese sieht
+                    fehlerTxt.visibleProperty().set(true);
                 } else {
                     if (gewehlt == null) {
-                        System.out.println("Eingaben Falsch");
+                        //Setzt die Fehler Meldung damit der User diese sieht
+                        fehlerTxt.visibleProperty().set(true);
                     } else {
+                        //Holt sich die Prozentsatz eingabe
                         prozent = Double.parseDouble(tbox_abschreibungsprozentsatz.getText());
+                        //Checkt ob Direkt oder Indirekt
                         if (direkt) {
+                            //Rechnet mit den Eingaben die Ausgabe
                             rechner(anschaffungswert, prozent, nutzungsdauer);
                             konto = "Anlagekonto";
+                            fehlerTxt.visibleProperty().set(false);
+                            //Startet die ausgabe
                             startAusgabe();
                         } else {
+                            //Rechnet mit den Eingaben die Ausgabe
                             rechner(anschaffungswert, prozent, nutzungsdauer);
                             konto = "WB";
+                            fehlerTxt.visibleProperty().set(false);
+                            //Startet die ausgabe
                             startAusgabe();
                         }
                     }
@@ -193,9 +226,13 @@ public class HauptseiteController implements Initializable {
 
     //Rechner der Degressiven Methode
     private void rechner(double wert, double prozent, double jahre) {
+        //Schaut es noch Jahre gibt wenn nicht dann bricht die Methode ab
         if (jahre == 0 || wert < 1) {
+            //Setzt denn Buchwert welcher am Ende übrig ist
             buchwert = wert;
         } else {
+            //Rechnet ein Jahr aus und springt zum nächsten 
+            //mit den neuen daten
             double preceentile = 100.0 - prozent;
             double neuerwert = wert * (preceentile / 100);
             double abzug = wert - neuerwert;
@@ -207,18 +244,18 @@ public class HauptseiteController implements Initializable {
         }
     }
 
-    //Set Mainapp for this Controller
+    //Setzt den Starter für diesen Kontroller
     public void setMainApp(Starter main) {
         this.main = main;
     }
 
-    //Start ausgabe
+    //Starter die Ausgabe und setzt die Werte des Werte Objektes im Starter
     private void startAusgabe() throws IOException {
         main.setData(anschaffungswert, abschreibungsbetrag, buchwert, konto, degressiveB, abzug);
         main.startAusgabe();
     }
 
-    //Check Methodes
+    //Schaut ob die Eingabe korrekt ausgewählt worden ist
     private boolean checkEingabe(String eingabe) {
         if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) == 0) {
             return true;
@@ -227,6 +264,7 @@ public class HauptseiteController implements Initializable {
         }
     }
 
+    //Schaut ob der Restwert korrekt ausgewählt worden ist
     private boolean checkRestWert(String eingabe) {
         if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > anschaffungswert) {
             return true;
@@ -235,6 +273,7 @@ public class HauptseiteController implements Initializable {
         }
     }
 
+    //Schaut ob der Prozentsatz korrekt ausgewählt worden ist
     private boolean checkProzent(String eingabe) {
         if (eingabe.isEmpty() || !eingabe.matches(AllowedChars) || Double.parseDouble(eingabe) > 99 || Double.parseDouble(eingabe) == 0) {
             return true;
@@ -243,11 +282,13 @@ public class HauptseiteController implements Initializable {
         }
     }
 
+    //Minimiert das Fenster
     @FXML
     private void min(ActionEvent event) throws IOException {
         main.setToMin();
     }
 
+    //Schliesst das Programm
     @FXML
     private void close(ActionEvent event) {
         System.exit(0);

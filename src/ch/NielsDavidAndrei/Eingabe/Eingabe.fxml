@@ -168,5 +168,10 @@
             <Font name="Open Sans" size="15.0" />
          </font>
       </Label>
+      <Label fx:id="fehlerTxt" layoutX="336.0" layoutY="353.0" text="Bitte geben Sie korrete Eingaben ein" textFill="RED">
+         <font>
+            <Font name="Open Sans" size="29.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
