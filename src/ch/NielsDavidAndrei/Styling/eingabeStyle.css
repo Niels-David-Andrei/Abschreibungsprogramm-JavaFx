@@ -14,29 +14,32 @@
     Created on : 19.08.2020, 15:28:46
     Author     : Andrei Oleniuc
 */
-
+/*Setzt den Hintergrund*/
 AnchorPane{
     -fx-background-color: linear-gradient(to top,#031249,#0a1f6e);
 }
+/*Setzt den Hintergrund der Buttons*/
 .JFXButton{
     -fx-background-color: linear-gradient(to right,#3721ba,#6e32f7);
 }
-
+/*Setzt die Schriftfarbe der Eingaben*/
 JFXTextField{
     -fx-text-fill: white;
 }
 
-
+/*Setzt den Style der Buttons*/
 .costum-jfx-radio-button .radio{
     -fx-stroke-width: 2px;
     -fx-fill:transparent;
 }
 
+/*Setzt den Style der Buttons*/
 .costum-jfx-radio-button-blue{
     -jfx-selected-color: #6e32f7;
     -jfx-unselected-color: white;
 }
 
+/*Setzt den der Textfelder*/
 .textField{
     -fx-background-color: #142455;
     -fx-text-inner-color: #5b7cb3;
