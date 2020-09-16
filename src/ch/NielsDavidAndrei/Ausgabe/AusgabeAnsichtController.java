@@ -95,6 +95,14 @@ public class AusgabeAnsichtController implements Initializable {
     private Circle linearDot2;
     @FXML
     private Circle linearDot3;
+    @FXML
+    private Label abzuglbl;
+    @FXML
+    private Label betraglbl;
+    @FXML
+    private Label akontolbl;
+    @FXML
+    private Label wbkontolbl;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -127,6 +135,11 @@ public class AusgabeAnsichtController implements Initializable {
         } else if (konto.equals("WB")) {
             kontolbl.setText("Der Betrag wird auf das WB Konto verbucht.");
         }
+        
+        abzuglbl.setText("Abzug: Zeigt wieviel in dem Jahr \r\n abgeschrieben wurde.");
+        betraglbl.setText("Neuer Betrag: Zeigt wieviel nach dem \r\n Abzug der Abschreibungen übrig bleibt.");
+        akontolbl.setText("Anlagekonto: Bei diesem Konto werden die \r\n Abschreibungen abgezogen.");
+        wbkontolbl.setText("WBkonto: Auf dieses Konto wird der \r\n Betrag der Abgeschrieben wurde verbucht.");
     }
 
     @FXML
