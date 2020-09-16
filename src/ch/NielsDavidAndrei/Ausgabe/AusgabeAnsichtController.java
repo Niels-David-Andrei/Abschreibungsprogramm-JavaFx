@@ -138,8 +138,8 @@ public class AusgabeAnsichtController implements Initializable {
         
         abzuglbl.setText("Abzug: Zeigt wieviel in dem Jahr \r\n abgeschrieben wurde.");
         betraglbl.setText("Neuer Betrag: Zeigt wieviel nach dem \r\n Abzug der Abschreibungen übrig bleibt.");
-        akontolbl.setText("Anlagekonto: Bei diesem Konto werden die \r\n Abschreibungen abgezogen.");
-        wbkontolbl.setText("WBkonto: Auf dieses Konto wird der \r\n Betrag der Abgeschrieben wurde verbucht.");
+        akontolbl.setText("Anlagekonto: Bei diesem Konto werden die \r\n Abschreibungen abgezogen aber nur bei Direkt.");
+        wbkontolbl.setText("WBkonto: Auf dieses Konto wird der abgeschriebene \r\n Betrag verbucht aber nur bei Indirekt.");
     }
 
     @FXML
