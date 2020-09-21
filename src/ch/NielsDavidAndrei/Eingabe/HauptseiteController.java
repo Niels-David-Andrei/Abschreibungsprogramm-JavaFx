@@ -226,13 +226,13 @@ public class HauptseiteController implements Initializable {
 
     //Rechner der Degressiven Methode
     private void rechner(double wert, double prozent, double jahre) {
-        //Schaut es noch Jahre gibt wenn nicht dann bricht die Methode ab
+        //Schaut ob es Jahre gibt wenn nicht dann bricht die Methode ab
         if (jahre == 0 || wert < 1) {
             //Setzt denn Buchwert welcher am Ende übrig ist
             buchwert = wert;
         } else {
             //Rechnet ein Jahr aus und springt zum nächsten 
-            //mit den neuen daten
+            //mit den neuen Daten
             double preceentile = 100.0 - prozent;
             double neuerwert = wert * (preceentile / 100);
             double abzug = wert - neuerwert;
